@@ -1,0 +1,48 @@
+---
+import { sponsors, links } from '../data/site';
+---
+
+<section id="sponsors" class="content-section">
+  <div class="container sponsors">
+    <p class="eyebrow">Sponsors</p>
+    {
+      sponsors.length > 0 ? (
+        <div class="logos">
+          {sponsors.map((sponsor) => (
+            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
+              {sponsor.name}
+            </a>
+          ))}
+        </div>
+      ) : (
+        <>
+          <h2 class="section-heading">Help keep TucsonJS free</h2>
+          <p class="lede">
+            We don't have sponsors yet — if your company wants to support pizza,
+            drinks, or a venue for Tucson's web developers, we'd love to hear
+            from you.
+          </p>
+          <a
+            class="button button-secondary"
+            href={links.discord}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get in touch
+          </a>
+        </>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .sponsors {
+    max-width: 640px;
+    text-align: center;
+  }
+
+  .lede {
+    font-size: 1.05rem;
+  }
+</style>

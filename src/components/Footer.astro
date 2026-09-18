@@ -1,0 +1,59 @@
+---
+import logo from '../assets/brand/logo-skyline.png';
+import { site, links } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container inner">
+    <img src={logo.src} width="28" height="28" alt="" />
+    <span class="copyright">© {year} {site.name}.</span>
+    <nav class="links" aria-label="Footer">
+      <a href={links.github} target="_blank" rel="noopener noreferrer">GitHub</a
+      >
+      <a href={links.discord} target="_blank" rel="noopener noreferrer"
+        >Discord</a
+      >
+      <a href={links.luma} target="_blank" rel="noopener noreferrer">Luma</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 2rem;
+  }
+
+  img {
+    border-radius: 999px;
+  }
+
+  .copyright {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-right: auto;
+  }
+
+  .links {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .links a {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .links a:hover {
+    color: var(--color-accent-pink);
+  }
+</style>

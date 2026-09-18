@@ -1,6 +1,5 @@
 # Dependencies
 node_modules/
-.pnpm-store/
 
 # Build outputs
 dist/
@@ -74,10 +73,6 @@ jspm_packages/
 
 # Nuxt.js build / generate output
 .nuxt
-
-# Gatsby files
-.cache/
-public
 
 # Storybook build outputs
 .out

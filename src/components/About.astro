@@ -1,0 +1,30 @@
+---
+import { site, cadence } from '../data/site';
+---
+
+<section id="about" class="content-section">
+  <div class="container about">
+    <p class="eyebrow">About</p>
+    <h2 class="section-heading">Built by and for the Tucson web community</h2>
+    <p class="lede">{site.description}</p>
+    <p class="cadence">{cadence}</p>
+  </div>
+</section>
+
+<style>
+  .about {
+    max-width: 720px;
+    text-align: center;
+  }
+
+  .lede {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .cadence {
+    font-weight: 600;
+    color: var(--color-accent-pink);
+    margin: 0;
+  }
+</style>

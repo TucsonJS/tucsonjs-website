@@ -1,0 +1,79 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import logo from '../assets/brand/logo-skyline.png';
+import { site } from '../data/site';
+---
+
+<header class="site-header">
+  <div class="container inner">
+    <a class="brand" href="#top">
+      <img src={logo.src} width="40" height="40" alt="" />
+      <span>{site.name}</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#next-event">Next Event</a>
+      <a href="#about">About</a>
+      <a href="#conduct">Code of Conduct</a>
+      <a href="#community">Community</a>
+    </nav>
+
+    <ThemeToggle />
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 0.75rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--color-text);
+    text-decoration: none;
+    margin-right: auto;
+  }
+
+  .brand img {
+    border-radius: 999px;
+  }
+
+  .nav {
+    display: none;
+    gap: 1.5rem;
+  }
+
+  .nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .nav a:hover {
+    color: var(--color-accent-pink);
+  }
+
+  @media (min-width: 720px) {
+    .nav {
+      display: flex;
+    }
+  }
+</style>

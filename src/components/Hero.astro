@@ -1,0 +1,104 @@
+---
+import logo from '../assets/brand/logo-skyline.png';
+import { site, links } from '../data/site';
+---
+
+<section id="top" class="hero">
+  <div class="container hero-inner">
+    <div class="copy">
+      <p class="eyebrow">Tucson, AZ</p>
+      <h1>{site.name} is a home for web developers in the desert.</h1>
+      <p class="lede">{site.tagline}</p>
+      <div class="actions">
+        <a
+          class="button button-primary"
+          href={links.luma}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          RSVP on Luma
+        </a>
+        <a
+          class="button button-secondary"
+          href={links.discord}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join the Discord
+        </a>
+      </div>
+    </div>
+    <img
+      class="hero-logo"
+      src={logo.src}
+      width="320"
+      height="320"
+      alt="TucsonJS logo: a night skyline of downtown Tucson with a saguaro cactus"
+    />
+  </div>
+</section>
+
+<style>
+  .hero-inner {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 2.5rem;
+    padding-block: 2rem 1rem;
+  }
+
+  .copy {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    color: var(--color-text);
+  }
+
+  .lede {
+    font-size: 1.15rem;
+    max-width: 42ch;
+    margin-inline: auto;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-logo {
+    width: min(240px, 55vw);
+    height: auto;
+    border-radius: 999px;
+    filter: drop-shadow(0 16px 30px rgba(46, 19, 71, 0.3));
+  }
+
+  @media (min-width: 860px) {
+    .hero-inner {
+      flex-direction: row;
+      text-align: left;
+      padding-block: 4rem 2rem;
+    }
+
+    .copy {
+      text-align: left;
+    }
+
+    .lede {
+      margin-inline: 0;
+    }
+
+    .actions {
+      justify-content: flex-start;
+    }
+
+    .hero-logo {
+      width: 280px;
+      flex-shrink: 0;
+    }
+  }
+</style>

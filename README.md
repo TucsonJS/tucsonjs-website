@@ -1,6 +1,10 @@
 # TucsonJS Website
 
-A modern website for TucsonJS built with Astro, React, and Tailwind CSS.
+The single-page site for the TucsonJS meetup, built with [Astro](https://astro.build) and plain CSS (no Tailwind, no React — just a couple of small inline scripts for the theme toggle).
+
+## ✏️ Updating event info
+
+Meetup details (next event, cadence, venue) and links (Luma, Discord, GitHub, Code of Conduct) are hand-edited in [`src/data/site.ts`](./src/data/site.ts) — there's no CMS or live Luma embed. Update that file before each meetup.
 
 ## 🚀 Project Structure
 
@@ -10,20 +14,29 @@ A modern website for TucsonJS built with Astro, React, and Tailwind CSS.
 │   └── workflows/
 │       └── deploy.yml          # GitHub Pages deployment
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.png
+│   └── og-image.png
 ├── src/
 │   ├── assets/
-│   │   ├── astro.svg
-│   │   └── background.svg
+│   │   └── brand/               # Logo and sticker artwork
 │   ├── components/
-│   │   ├── Home.astro
-│   │   └── Welcome.astro
+│   │   ├── Header.astro
+│   │   ├── Hero.astro
+│   │   ├── NextEvent.astro
+│   │   ├── About.astro
+│   │   ├── CodeOfConduct.astro
+│   │   ├── Community.astro
+│   │   ├── Sponsors.astro
+│   │   ├── Footer.astro
+│   │   └── ThemeToggle.astro
+│   ├── data/
+│   │   └── site.ts              # Editable event/link/copy config
 │   ├── layouts/
 │   │   └── Layout.astro
 │   ├── pages/
 │   │   └── index.astro
 │   └── styles/
-│       └── global.css
+│       └── global.css           # Color tokens (light/dark) + base styles
 ├── .prettierrc                 # Prettier configuration
 ├── eslint.config.js           # ESLint configuration
 ├── astro.config.mjs           # Astro configuration
@@ -35,7 +48,7 @@ A modern website for TucsonJS built with Astro, React, and Tailwind CSS.
 ### Prerequisites
 
 - Node.js >= 18.20.8 (required for Astro)
-- pnpm (recommended package manager)
+- npm
 
 ### Installation
 
@@ -49,26 +62,26 @@ A modern website for TucsonJS built with Astro, React, and Tailwind CSS.
 2. Install dependencies:
 
    ```bash
-   pnpm install
+   npm install
    ```
 
 3. Start the development server:
    ```bash
-   pnpm dev
+   npm run dev
    ```
 
 ## 📋 Available Scripts
 
-| Command             | Action                                       |
-| :------------------ | :------------------------------------------- |
-| `pnpm dev`          | Starts local dev server at `localhost:4321`  |
-| `pnpm build`        | Build your production site to `./dist/`      |
-| `pnpm preview`      | Preview your build locally, before deploying |
-| `pnpm lint`         | Run ESLint on JavaScript/TypeScript files    |
-| `pnpm lint:fix`     | Run ESLint and fix auto-fixable issues       |
-| `pnpm format`       | Format code with Prettier                    |
-| `pnpm format:check` | Check if code is formatted correctly         |
-| `pnpm check`        | Run both linting and format checking         |
+| Command                | Action                                       |
+| :--------------------- | :------------------------------------------- |
+| `npm run dev`          | Starts local dev server at `localhost:4321`  |
+| `npm run build`        | Build your production site to `./dist/`      |
+| `npm run preview`      | Preview your build locally, before deploying |
+| `npm run lint`         | Run ESLint on JavaScript/TypeScript files    |
+| `npm run lint:fix`     | Run ESLint and fix auto-fixable issues       |
+| `npm run format`       | Format code with Prettier                    |
+| `npm run format:check` | Check if code is formatted correctly         |
+| `npm run check`        | Run both linting and format checking         |
 
 ## 🚀 Deployment
 
@@ -89,7 +102,7 @@ The site will be available at: `https://<your-username>.github.io/tucsonjs-websi
 If you want to deploy manually:
 
 ```bash
-pnpm build
+npm run build
 # Upload the contents of ./dist/ to your hosting provider
 ```
 
@@ -98,27 +111,14 @@ pnpm build
 This project includes:
 
 - **ESLint**: Code linting for JavaScript/TypeScript files
-- **Prettier**: Code formatting with Astro and Tailwind CSS support
+- **Prettier**: Code formatting with Astro support
 - **GitHub Actions**: Automated deployment to GitHub Pages
 
 ### Configuration Files
 
-- `.prettierrc`: Prettier configuration with Astro and Tailwind plugins
-- `eslint.config.js`: ESLint configuration for TypeScript and React
+- `.prettierrc`: Prettier configuration with the Astro plugin
+- `eslint.config.js`: ESLint configuration for TypeScript and Astro
 - `.github/workflows/deploy.yml`: GitHub Actions workflow for deployment
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
 ## 👀 Want to learn more?
 
