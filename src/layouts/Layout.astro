@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import logo from '../assets/brand/logo-skyline.png';
+import { site, links } from '../data/site';
 
 interface Props {
   title?: string;
@@ -11,9 +13,19 @@ const {
   description = 'A welcoming monthly meetup for web developers in Tucson, AZ. Come learn, share, and build community.',
 } = Astro.props;
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const ogImage = new URL(`${base}/og-image.png`, Astro.site);
-const faviconHref = `${base}/favicon.png`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og-image.png', Astro.site);
+const logoURL = new URL(logo.src, Astro.site);
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  url: Astro.site?.toString(),
+  logo: logoURL.toString(),
+  description: site.description,
+  sameAs: [links.github, links.discord, links.luma],
+};
 ---
 
 <!doctype html>
@@ -22,14 +34,21 @@ const faviconHref = `${base}/favicon.png`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/png" href={faviconHref} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
 
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_US" />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,6 +58,11 @@ const faviconHref = `${base}/favicon.png`;
     />
 
     <title>{title}</title>
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(organizationJsonLd)}
+    />
 
     <script is:inline>
       // Runs before paint to avoid a light/dark flash on load.
