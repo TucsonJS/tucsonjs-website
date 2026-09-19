@@ -10,12 +10,24 @@ const year = new Date().getFullYear();
     <img src={logo.src} width="28" height="28" alt="" />
     <span class="copyright">© {year} {site.name}.</span>
     <nav class="links" aria-label="Footer">
-      <a href={links.github} target="_blank" rel="noopener noreferrer">GitHub</a
+      <a
+        href={links.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-plausible-event-name="GitHub Click">GitHub</a
       >
-      <a href={links.discord} target="_blank" rel="noopener noreferrer"
-        >Discord</a
+      <a
+        href={links.discord}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-plausible-event-name="Discord Click">Discord</a
       >
-      <a href={links.luma} target="_blank" rel="noopener noreferrer">Luma</a>
+      <a
+        href={links.luma}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-plausible-event-name="Luma Click">Luma</a
+      >
     </nav>
   </div>
 </footer>

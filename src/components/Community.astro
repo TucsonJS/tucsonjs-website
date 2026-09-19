@@ -26,6 +26,7 @@ const items = [
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
+            data-plausible-event-name={`${item.name} Click`}
           >
             <div class="name">{item.name}</div>
             <div class="description">{item.description}</div>

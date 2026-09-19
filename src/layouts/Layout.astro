@@ -26,6 +26,10 @@ const organizationJsonLd = {
   description: site.description,
   sameAs: [links.github, links.discord, links.luma],
 };
+
+const plausibleDomain = 'tucsonjs.club';
+const plausibleScriptSrc =
+  'https://analytics.innesapps.net/js/script.outbound-links.tagged-events.js';
 ---
 
 <!doctype html>
@@ -63,6 +67,20 @@ const organizationJsonLd = {
       type="application/ld+json"
       set:html={JSON.stringify(organizationJsonLd)}
     />
+
+    <script
+      defer
+      data-domain={plausibleDomain}
+      src={import.meta.env.PROD ? plausibleScriptSrc : undefined}></script>
+    <script is:inline>
+      // Analytics queue stub — harmless if the tracking script above didn't
+      // load (dev mode, or blocked by an ad blocker in production).
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
 
     <script is:inline>
       // Runs before paint to avoid a light/dark flash on load.
