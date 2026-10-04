@@ -41,15 +41,15 @@ export const site: SiteInfo = {
 // entry as the featured "Next Event" and lists any others below it.
 export const events: MeetupEvent[] = [
   {
-    title: 'TucsonJS Monthly Meetup',
-    date: null,
-    time: null,
+    title: 'TucsonJS October Meetup',
+    date: 'Thursday, October 22nd',
+    time: '5:00 pm - 9:00 pm',
     location: '1510 E University Blvd, Tucson, AZ',
-    lumaUrl: 'https://luma.com/tucsonjs',
+    lumaUrl: 'https://luma.com/77p2ih2q?utm_source=website',
   },
 ];
 
-export const cadence: string = 'Monthly, on the third Thursday';
+export const cadence: string = 'Monthly, (usually) on the third Thursday';
 
 export const links: SiteLinks = {
   luma: 'https://luma.com/tucsonjs',
