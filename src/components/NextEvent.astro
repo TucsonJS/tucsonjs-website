@@ -1,16 +1,21 @@
 ---
 import { events } from '../data/site';
+
+const todayIsoDate = new Date().toISOString().slice(0, 10);
+const upcomingEvents = events.filter(
+  (event) => !event.isoDate || event.isoDate >= todayIsoDate
+);
 ---
 
 {
-  events.length > 0 && (
+  upcomingEvents.length > 0 && (
     <section id="next-event" class="content-section">
       <div class="container">
         <p class="eyebrow centered">
-          {events.length > 1 ? 'Upcoming Events' : 'Next Event'}
+          {upcomingEvents.length > 1 ? 'Upcoming Events' : 'Next Event'}
         </p>
         <div class="event-list">
-          {events.map((event) => (
+          {upcomingEvents.map((event) => (
             <div class="card event-card">
               <h2 class="section-heading">{event.title}</h2>
               <div class="details">
@@ -51,15 +56,17 @@ import { events } from '../data/site';
                   <span>{event.location}</span>
                 </div>
               </div>
-              <a
-                class="button button-primary"
-                href={event.lumaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-plausible-event-name="Luma Click"
-              >
-                RSVP on Luma
-              </a>
+              {event.lumaUrl && (
+                <a
+                  class="button button-primary"
+                  href={event.lumaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-plausible-event-name="Luma Click"
+                >
+                  RSVP on Luma
+                </a>
+              )}
             </div>
           ))}
         </div>
