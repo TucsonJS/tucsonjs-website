@@ -81,8 +81,18 @@ const upcomingEvents = events.filter(
   }
 
   .detail i {
-    color: var(--color-accent-pink);
     font-size: 1.25rem;
     flex-shrink: 0;
+    --fa-secondary-opacity: 1;
+  }
+
+  .fa-calendar-clock {
+    --fa-primary-color: var(--color-accent-pink);
+    --fa-secondary-color: var(--color-accent-teal);
+  }
+
+  .fa-map-location-dot {
+    --fa-primary-color: var(--color-accent-teal);
+    --fa-secondary-color: var(--color-accent-pink);
   }
 </style>
