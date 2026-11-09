@@ -25,10 +25,18 @@
 
   .icon {
     font-size: 1.25rem;
+    --fa-secondary-opacity: 1;
   }
 
   .icon-sun {
     display: none;
+    --fa-primary-color: var(--color-accent-orange);
+    --fa-secondary-color: var(--color-accent-pink);
+  }
+
+  .icon-moon {
+    --fa-primary-color: var(--color-primary);
+    --fa-secondary-color: var(--color-accent-teal);
   }
 
   :root[data-theme='dark'] .icon-moon {
