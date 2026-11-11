@@ -52,7 +52,7 @@ export const events: MeetupEvent[] = [
     time: '5:00 pm - 9:00 pm',
     isoDate: '2026-11-19',
     location: '1510 E University Blvd, Tucson, AZ',
-    lumaUrl: null,
+    lumaUrl: 'https://luma.com/m5v5yk9a?utm_source=website',
   },
   {
     title: 'TucsonJS December Meetup',
